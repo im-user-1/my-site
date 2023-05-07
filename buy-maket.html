@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buy</title>
+	<meta http-equiv='Content-Language' content='en'>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+	<meta name='viewport' content='width = device-width,height = device-height, initial-scale = 1'>
+	<link rel='stylesheet' href='styles.css' type='text/css'>
+</head>
+<body>
+	<header>
+		<div id="logo"><a href="index.html">honey&heart</a></div>
+		<nav>
+			<a href="menu.html">menu</a>
+			<a href="#">new</a>
+			<a href="contact.html">contacts</a>
+			<div id="circle"></div>
+		</nav>
+	</header>
+	<h1>
+		Buy at discount
+	</h1>
+	<section id="section-goods-block">
+		<div class="goods-list">
+			<div class="goods">
+				<div>
+					<div class="name">Lorem ipsum dolor, sit</div>
+					<div class="price">
+						<span class="price-orig">10$</span>
+						<span class="price-calc"></span>
+						<div class="discount"><span class="discount-text">-30%</span></div>
+					</div>
+				</div>
+				<img src="img/goods-1.jpg" alt="" class="photo">
+				<div class="short-desciption">
+					Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Odio distinctio quasi illo sint placeat!
+				</div>
+				<button><a href="#">Buy</a></button>
+			</div>
+			<div class="goods">
+				<div>
+					<div class="name">Lorem ipsum, dolor sit</div>
+					<div class="price">
+						<span class="price-orig">15$</span>
+						<span class="price-calc"></span>
+						<div class="discount"><span class="discount-text">-10%</span></div>
+					</div>
+				</div>
+				<img src="img/goods-2.jpg" alt="" class="photo">
+				<div class="short-desciption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae ad iste nobis, deserunt, hic fuga.</div>
+				<button><a href="#">Buy</a></button>
+			</div>
+			<div class="goods">
+				<div>
+					<div class="name">Lorem, ipsum</div>
+					<div class="price">
+						<span class="price-orig">300$</span>
+						<span class="price-calc"></span>
+						<div class="discount"><span class="discount-text">-20%</span></div>
+					</div>
+				</div>
+				<img src="img/goods-3.png" alt="" class="photo">
+				<div class="short-desciption">Life in the kitchen is easier when you use the right tool for the task.</div>
+				<button><a href="#">Buy</a></button>
+			</div>
+			<div class="goods">
+				<div>
+					<div class="name">Lorem, ipsum dolor</div>
+					<div class="price">
+						<span class="price-orig">500$</span>
+						<span class="price-calc"></span>
+						<div class="discount"><span class="discount-text">-15%</span></div>
+					</div>
+				</div>
+				<img src="img/goods-4.jpg" alt="" class="photo">
+				<div class="short-desciption">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, asperiores!</div>
+				<button><a href="#">Buy</a></button>
+			</div>
+			
+
+		</div>
+	</section>
+	<footer>
+		<div class="footer-background"></div>
+		<div class="content">
+			<div>honey&heart</div>
+			<nav>
+				<a href="menu.html">menu</a>
+				<a href="#">new</a>
+				<a href="#">seasonal</a>
+				<a href="#">collections</a>
+				<a href="contact.html">contacts</a>
+				<a href="#">q&a</a>
+			</nav>
+			<div class="contacts">
+				<button><a href="#">request a call</a></button>
+				<a href="tel:+43038887734">+4(303) 888-77-34</a>
+				<a class="email" href="mailto:honeyandheart@sitename.world">honeyandheart@sitename.world</a>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		function discount(){
+			let prices = document.getElementsByClassName('price');
+			console.log(prices)
+			for (let price of prices){
+				var priceOrig = price.getElementsByClassName("price-orig")[0].innerHTML;
+				var priceDisc = price.getElementsByClassName("price-calc")[0].innerHTML;
+				var discount = price.getElementsByClassName("discount-text")[0].innerHTML;
+				console.log(priceOrig, priceDisc, discount);
+				priceDisc = parseInt(priceOrig.replace("$", "")) * (1 - (parseInt(discount.replace("%","").replace("-","")) / 100));
+				price.getElementsByClassName("price-calc")[0].innerHTML =  (parseInt(priceDisc* 100)/100) +"$";
+
+			}
+		}
+		discount();
+	</script>
+</body>
+</html>
