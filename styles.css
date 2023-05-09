@@ -5,7 +5,6 @@
 * Browsers: last 4 version
 */
 
-@import "dropdown.css";
 
 *{margin:0; padding:0; outline:0;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
@@ -674,6 +673,113 @@ legend{
 
 
 
+.dropdown{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 100;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    right:0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: white;
+    -webkit-box-shadow: 2px 2px 6px var(--color4);
+            box-shadow: 2px 2px 6px var(--color4);
+}
+
+.dropdown-content > *{
+    -ms-flex-preferred-size: min-content;
+        flex-basis: min-content;
+    padding: 5px 20px;
+}
+
+.dropdown:hover .dropdown-header, 
+.dropdown-content > *:hover{
+    background: var(--color4);
+}
+
+.dropdown-burger{
+    width: 0;
+    height:0;
+}
+
+.dropdown-burger:checked ~ .dropdown-content{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 63px;
+}
+
+#circle{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    row-gap: 8px;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+
+#circle > .line{
+    width: 50px;
+    height: 4px;
+    background: var(--color1);
+    -webkit-transform-origin: 17px;
+        -ms-transform-origin: 17px;
+            transform-origin: 17px;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+
+.dropdown-burger:checked ~ #circle{
+    background: transparent;
+}
+
+.dropdown-burger:checked ~ #circle > .line:first-child{
+    -webkit-transform: rotateZ(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotateZ(45deg);
+}
+
+.dropdown-burger:checked ~ #circle > .line:last-child{
+    -webkit-transform: rotateZ(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotateZ(-45deg);
+}
+
+
+@media screen and (min-width: 769px){
+    .dropdown:hover .dropdown-content{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 63px;
+    }
+}
 
 @media screen and (max-width: 1280px){
     #section-offers{
@@ -773,6 +879,13 @@ legend{
     #section-goods-block{
         padding: 0 20px;
     }
+
+    .dropdown{
+           position: static;
+       }
+       .dropdown-content{
+           right: 20px;
+       }
 }
 
 
