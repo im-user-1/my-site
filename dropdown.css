@@ -1,6 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .dropdown{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
 }
 
@@ -8,15 +19,22 @@
     display: none;
     position: absolute;
     z-index: 100;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     right:0;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background: white;
-    box-shadow: 2px 2px 6px var(--color4);
+    -webkit-box-shadow: 2px 2px 6px var(--color4);
+            box-shadow: 2px 2px 6px var(--color4);
 }
 
 .dropdown-content > *{
-    flex-basis: min-content;
+    -ms-flex-preferred-size: min-content;
+        flex-basis: min-content;
     padding: 5px 20px;
 }
 
@@ -31,16 +49,29 @@
 }
 
 .dropdown-burger:checked ~ .dropdown-content{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 63px;
 }
 
 #circle{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     row-gap: 8px;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
     transition: all 200ms;
 }
 
@@ -48,7 +79,11 @@
     width: 50px;
     height: 4px;
     background: var(--color1);
-    transform-origin: 17px;
+    -webkit-transform-origin: 17px;
+        -ms-transform-origin: 17px;
+            transform-origin: 17px;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
     transition: all 200ms;
 }
 
@@ -57,15 +92,21 @@
 }
 
 .dropdown-burger:checked ~ #circle > .line:first-child{
-    transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotateZ(45deg);
 }
 
 .dropdown-burger:checked ~ #circle > .line:last-child{
-    transform: rotateZ(-45deg);
+    -webkit-transform: rotateZ(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotateZ(-45deg);
 }
 
 @media screen and (min-width: 769px){
     .dropdown:hover .dropdown-content{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin-top: 63px;
     }
